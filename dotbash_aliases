@@ -1,0 +1,22 @@
+alias l='ls --color=auto --group-directories-first -p -c'
+
+nvimbin=~/data/d/nvim-linux64/bin/nvim
+alias v="$nvimbin"
+
+alias f=firefox'
+
+#alias k='setxkbmap -layout ch -variant de_nodeadkeys -option ctrl:swapcaps'
+ 
+alias tkill="for s in \$(tmux list-sessions | awk '{print \$1}' | rg ':' -r '' | fzy); do tmux kill-session -t \$s; done;"
+alias tn='tmux new -s "${PWD##*/}"'
+alias wasm3="~/data/d/wasm3/build/wasm3"
+alias zmqsend="~/data/d/ffmpeg/FFmpeg/tools/zmqsend"
+#alias k="minikube kubectl"
+#alias k='microk8s kubectl'
+alias k='kubectl'
+alias vimb='cd ~/data/d/vimb && make runsandbox'
+alias kpt='~/data/d/kpt_linux_amd64'
+alias rclone='~/data/d/rclone/rclone-v1.59.1-linux-amd64/rclone'
+alias ko='~/data/d/ko/ko'
+
+alias gam='git add . && git commit -m'

@@ -1,0 +1,43 @@
+exec_always --no-startup-id autotiling
+
+input type:keyboard {
+    xkb_layout de
+    xkb_variant ,nodeadkeys
+    xkb_options ctrl:swapcaps
+}
+
+set $mod Mod4
+set $term foot
+
+bindsym $mod+Shift+q kill
+bindsym $mod+Return exec $term
+default_border pixel 0
+
+bindsym $mod+Shift+r reload
+
+bindsym $mod+f fullscreen
+bindsym $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle split
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+
+bindsym $mod+Left resize shrink width 15px
+bindsym $mod+Right resize grow width 15px
+bindsym $mod+Up resize shrink height 15px
+bindsym $mod+Down resize grow height 15px
+
+bindsym Escape mode "default"
+
