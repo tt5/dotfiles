@@ -111,6 +111,8 @@ cmp.setup({
 -- require("mason").setup()
 
 require'lspconfig'.pylsp.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.tsserver.setup{}
 
 vim.opt.termguicolors = true
 vim.cmd "colorscheme nightfly"
@@ -149,6 +151,8 @@ set hidden
 
 local map = vim.api.nvim_set_keymap
 map('i', '<leader>ö', 'ö', {noremap = true})
+map('i', '<leader>ü', 'ü', {noremap = true})
+map('i', 'ü', '{<cr>}<c-o>O', {noremap = true})
 map('n', '<leader>tf', '<cmd>Telescope find_files<cr>', {noremap = true})
 map('n', '<leader>tb', '<cmd>Telescope buffers<cr>', {noremap = true})
 --map('n', '<leader>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', {noremap = true})
@@ -195,3 +199,34 @@ map('n', '<leader>w', '<cmd>w<cr>', {noremap = true})
 ---- Uncomment to not use default keybindings
 ---- vim.g.scnvim_no_mappings = 1
 
+local scnvim = require 'scnvim'
+local map = scnvim.map
+local map_expr = scnvim.map_expr
+scnvim.setup {
+  keymaps = {
+    ['<M-e>'] = map('editor.send_line', {'i', 'n'}),
+    ['<C-e>'] = {
+      map('editor.send_block', {'i', 'n'}),
+      map('editor.send_selection', 'x'),
+    },
+    ['<CR>'] = map('postwin.toggle'),
+    ['<M-CR>'] = map('postwin.toggle', 'i'),
+    ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
+    ['<C-k>'] = map('signature.show', {'n', 'i'}),
+    ['<F12>'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
+    ['<leader>st'] = map('sclang.start'),
+    ['<leader>sk'] = map('sclang.recompile'),
+    ['<F1>'] = map_expr('s.boot'),
+    ['<F2>'] = map_expr('s.meter'),
+  },
+  editor = {
+    highlight = {
+      color = 'IncSearch',
+    },
+  },
+  postwin = {
+    float = {
+      enabled = true,
+    },
+  },
+}

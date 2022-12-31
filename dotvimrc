@@ -41,8 +41,8 @@ map <space> \
 
 set autoread
 map <leader>w :w<CR>
-map <leader>f :AsyncRun zig fmt %<CR>
-map <leader>x wi<BS>clear<CR>zig build run<CR>w
+au BufNewFile,BufRead *.zig map <leader>f :AsyncRun zig fmt %<CR>
+au BufNewFile,BufRead *.zig map map <leader>x wi<BS>clear<CR>zig build run<CR>w
 
 if ! exists("g:CheckUpdateStarted")
     let g:CheckUpdateStarted=1
@@ -64,8 +64,8 @@ nmap <buffer> ]g <plug>(lsp-next-diagnostic)
 
 set backspace=indent,eol,start
 
-"au BufNewFile,BufRead *.m4d imap <TAB> <c-o>saBi²<cr>¹<cr><esc>Ea
-"nnoremap M i<space><esc>r<CR>
+au BufNewFile,BufRead *.m4d imap <TAB> <c-o>saBi²<cr>¹<cr><esc>Ea
+nnoremap M i<space><esc>r<CR>
 "nnoremap <leader>ev :e $MYVIMRC<cr>
 "nnoremap <leader>sv :source $MYVIMRC<cr>
 "nnoremap [q :cprevious<CR>
