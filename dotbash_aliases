@@ -23,3 +23,5 @@ alias ko='~/data/d/ko/ko'
 
 alias gam='git add . && git commit -m'
 alias gs='git status'
+
+alias kubeseal='~/data/d/kubeseal/kubeseal'

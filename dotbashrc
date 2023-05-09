@@ -18,6 +18,7 @@ HISTFILESIZE=100000
 HISTSIZE=100000
 HISTIGNORE='a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p:q:r:s:t:u:v:w:x:y:z'
 HISTIGNORE+=':fg:cd:ls'
+HISTIGNORE+=':export'
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -91,6 +92,7 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=${HOME}/mygo
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/data/d/zig-linux-x86_64-0.10.0-dev.3685+dae7aeb33:$PATH"
+export PATH="$HOME/data/l/chess/stockfish/Stockfish/src:$PATH"
 
 export BAT_THEME="ansi-dark"
 
@@ -155,3 +157,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 
 [ -f "/home/n/.ghcup/env" ] && source "/home/n/.ghcup/env" # ghcup-env
+
+#[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+#eval "$(atuin init bash)"
+
+command -v flux >/dev/null && . <(flux completion bash)
+
+export DOCKER_HOST="unix://$(podman info -f "{{.Host.RemoteSocket.Path}}")"

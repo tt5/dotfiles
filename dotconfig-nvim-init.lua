@@ -113,6 +113,8 @@ cmp.setup({
 require'lspconfig'.pylsp.setup{}
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.svelte.setup{}
+require'lspconfig'.astro.setup{}
 
 vim.opt.termguicolors = true
 vim.cmd "colorscheme nightfly"
@@ -164,6 +166,9 @@ map('n', '<leader>p', '<cmd>r! wl-paste -p<cr>', {noremap = true})
 map('n', '<leader>b', '<cmd>bn<cr>', {noremap = true})
 
 map('n', '<leader>w', '<cmd>w<cr>', {noremap = true})
+local opts = { noremap = true, silent = true }
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 
 ---- vim.g.scnvim_sclang_options = {'-l', "/home/mads/.config/SuperCollider/sclang_conf_development.yaml"}
 --
