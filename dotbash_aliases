@@ -25,3 +25,4 @@ alias gam='git add . && git commit -m'
 alias gs='git status'
 
 alias kubeseal='~/data/d/kubeseal/kubeseal'
+alias mkcert='~/data/d/mkcert/mkcert'
